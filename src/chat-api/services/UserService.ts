@@ -142,7 +142,7 @@ export async function registerRequest(
       email,
       username,
       password,
-      token,
+      ...(token.length ? { token } : null), // fairly don't send the token if there is none instead of sending an empty string
     },
   });
 }
